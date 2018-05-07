@@ -1,7 +1,13 @@
 class QuotesController < ApplicationController
   def index
-    @quotes = Quote.all
+    author = params[:author]
+    content = params[:content]
+binding.pry
+    @quotes = Quote.search(name)
     json_response(@quotes)
+    # V prior to search things
+    # @quotes = Quote.all
+    # json_response(@quotes)
   end
 
   def show
@@ -27,7 +33,7 @@ class QuotesController < ApplicationController
     @quote = Quote.find(params[:id])
     @quote.destroy
     render status: 200, json: {
-      message: "Quote has been succesfully removed."
+      message: "Quote has been succesfully removed"
     }
   end
 

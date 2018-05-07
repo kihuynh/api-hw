@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory(:quote) do
-    author('Barney Rubble')
+    author('Barney')
     content('Oh, Romeo. Oh, Romeo. Where are thou Romeo.')
   end
 end
