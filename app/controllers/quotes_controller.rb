@@ -1,10 +1,26 @@
 class QuotesController < ApplicationController
   def index
+    # query = params[:query]
     author = params[:author]
     content = params[:content]
-binding.pry
-    @quotes = Quote.search(name)
-    json_response(@quotes)
+
+# how to determine based on views? how it will know what to search first?
+
+    if content
+      @quotes = Quote.search_author(author)
+      json_response(@quotes)
+    else
+      @quotes = Quote.search_content(content)
+      json_response(@quotes)
+    end
+
+      #
+      # @quotes = Quote.search_author(author)
+      # json_response(@quotes)
+      # @quotes = Quote.search_content(content)
+      # json_response(@quotes)
+
+
     # V prior to search things
     # @quotes = Quote.all
     # json_response(@quotes)
