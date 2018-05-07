@@ -10,12 +10,12 @@ class QuotesController < ApplicationController
   end
 
   def create
-    @quote = Quote.create(quote_params)
+    @quote = Quote.create!(quote_params)
     json_response(@quote)
   end
 
   def update
-    @quote = Quote.find(params[:id])
+    @quote = Quote.find!(params[:id])
     @quote.update(quote_params)
   end
 
