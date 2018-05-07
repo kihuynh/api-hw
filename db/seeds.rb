@@ -1,4 +1,5 @@
 class Seed
+
   def self.begin
     seed = Seed.new
     seed.generate_quotes
@@ -11,7 +12,7 @@ class Seed
         author: Faker::Book.author,
         content: Faker::ChuckNorris.fact
       )
-      puts "Quote #{i}: Author is #{quote.author} and qutation is '#{quote.content}'."
+      puts "Quote #{i}: Author is #{quote.author} and quotation is '#{quote.content}'."
     end
   end
 end

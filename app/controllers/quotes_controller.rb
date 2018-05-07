@@ -1,6 +1,6 @@
 class QuotesController < ApplicationController
   def index
-    @quotes = {"quotation": "The secret of getting ahead is getting started."}
+    @quotes = Quote.all
     json_response(@quotes)
   end
 
@@ -25,10 +25,6 @@ class QuotesController < ApplicationController
   end
 
 private
-  def json_response(object, status = :ok)
-    render json: object, status: status
-  end
-
   def quote_params
     params.permit(:author, :content)
   end
